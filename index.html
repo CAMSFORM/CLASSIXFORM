@@ -1,0 +1,276 @@
+<!--MADE BY CAMERAMAN TEAM LEADED BY PLUNGER MAN (ARKA BHATTACHARYA)-->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+    <link rel="icon" href="LOGO.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://kit.fontawesome.com/5ee727908a.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&amp;display=swap">
+ 
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+    <script src="main.js"></script>
+    <title>STUDENT DETAILS CLASS IX C</title>
+<script type="module">
+    $(document).ready(function() {
+  $('select').material_select();
+  $('.datepicker').pickadate({
+    selectMonths: true, 
+    selectYears: 15
+  });
+  $.validator.setDefaults({
+    ignore: []
+  });
+  $("form").validate({
+    submitHandler: function(form) {
+      console.log(form);
+      return;
+    },
+    errorElement: 'div',
+    errorPlacement: function(error, element) {
+      var placement = $(element).data('error');
+
+    }
+  });
+
+});
+
+</script>
+  </head>
+
+  <body onload="checkfunction()">
+    <a id="loader" href="#popup5"></a>
+    <a id="loaderc" href="#"></a>
+     <!-- Modal HTML -->
+     <div style="overflow: true; " id="popup5" class="overlay">
+       <div class="popup" style="display: flex; align-items: center;">
+   
+           <div class="loader"></div>
+           <div><label style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;width: 5px; ">Loading ... </label></div>
+           <br><br>
+          </div>
+   </div>
+    <div id="toastBox" style="position: absolute;z-index: 55;bottom: 30px;right: 30px;display: flex;align-items: flex-end;flex-direction: column;overflow: hidden;padding: 20px;">
+        
+    </div>
+    <div id="SSUBMIT" style="width: 100%;height: 100%;text-align: center;display: flex;justify-content: center;align-items: center;display: none;">
+        <div class="card">
+            <div style="border-radius:200px; height:200px; width:200px; background: #F8FAF5; margin:0 auto;">
+              <i class="checkmark">✓</i>
+            </div>
+              <h1>Success</h1> 
+              <p>You have responded to the form.<br/> Your information was succesfully saved !</p>
+            </div>
+    </div>
+ 
+    <div id="formreal" class="ctrlqFormContentWrapper">
+      <div class="ctrlqHeaderMast"></div>
+      <div class="ctrlqCenteredContent">
+        <div class="ctrlqFormCard">
+          <div class="ctrlqAccent"></div>
+          <div class="ctrlqFormContent">
+
+            <form onsubmit="return false">  
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <h4>Student Details Form IX C</h4>
+                  <p>All fields are required</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="SName"  type="text" class="validate"  required>
+                  <label >Your Name</label>
+                  <div id="e1"></div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <select id="roll_number" class="validate"  required>           
+                    <option value="" disabled selected>Choose Roll Number</option>
+                    <option value="1">1</option> 
+                    <option value="2">2</option>
+                    <option value="3">3</option> 
+                    <option value="4">4</option>
+                    <option value="5">5</option> 
+                    <option value="6">6</option>
+                    <option value="7">7</option> 
+                    <option value="8">8</option>
+                    <option value="9">9</option> 
+                    <option value="10">10</option>
+                    <option value="11">11</option> 
+                    <option value="12">12</option>
+                    <option value="13">13</option> 
+                    <option value="14">14</option>
+                    <option value="15">15</option> 
+                    <option value="16">16</option>
+                    <option value="17">17</option> 
+                    <option value="18">18</option>
+                    <option value="19">19</option> 
+                    <option value="20">20</option>
+                    <option value="21">21</option> 
+                    <option value="22">22</option>
+                    <option value="23">23</option> 
+                    <option value="24">24</option>
+                    <option value="25">25</option> 
+                    <option value="26">26</option>
+                    <option value="27">27</option> 
+                    <option value="28">28</option>
+                    <option value="29">29</option> 
+                    <option value="30">30</option>
+                    <option value="31">31</option> 
+                    <option value="32">32</option>
+                    <option value="33">33</option> 
+                    <option value="34">34</option>
+                    <option value="35">35</option> 
+                    <option value="36">36</option>
+                    <option value="37">37</option> 
+                    <option value="38">38</option>
+                    <option value="39">39</option> 
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option> 
+                    <option value="43">43</option>
+                    <option value="44">44</option> 
+                    <option value="45">45</option>
+                    <option value="46">46</option> 
+                    <option value="47">47</option>
+
+                  </select>
+                  <div id="e3"></div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="Semail"  type="text" class="validate"  required>
+                  <label >Your Email</label>
+                  <div id="e2"></div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <select id="Sgender" class="validate"  required>           
+                    <option value="" disabled selected>Choose Gender</option>
+                    <option value="Male">Male</option> 
+                    <option value="Female">Female</option>
+                  </select>
+                  <div id="e3"></div>
+                </div>
+              </div>
+
+            
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <label for="birthdate">Date Of Birth (Ex - 2nd August, 2008)</label>
+                  <input type="text" id="Sbirthdate"   required>
+                  <div id="e5"></div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="Smother_name"  type="text" class="validate"  required>
+                  <label for="email">Your Mother Name</label>
+                  <div id="e2"></div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="Sfather_name"  type="text" class="validate"  required>
+                  <label >Your Father Name</label>
+                  <div id="e2"></div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="Scast"  type="text" class="validate"  required>
+                  <label >Your Caste</label>
+                  <div id="e2"></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="Saadhar_number"  type="number" class="validate"  required>
+                  <label >Your Aadhar Number</label>
+                  <div id="e2"></div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <select id="Slanguage" class="validate"  required>           
+                    <option value="" disabled selected>Choose 2nd Language</option>
+                    <option value="Hindi">Hindi</option> 
+                    <option value="Bengali">Bengali</option>
+                  </select>
+                  <div id="e3"></div>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="input-field col s12">
+                  <select id="ShouseColor" class="validate"  required>           
+                    <option value="" disabled selected>Choose House Colour</option>
+                    <option value="Red">Red</option> 
+                    <option value="Yellow">Yellow</option>
+                    <option value="Green">Green</option> 
+                    <option value="Blue">Blue</option>
+                  </select>
+                  <div id="e3"></div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <select id="Ssingle" class="validate" required>           
+                    <option value="" disabled selected>Single Child ?</option>
+                    <option value="Yes">Yes</option> 
+                    <option value="No">No</option>
+                  </select>
+                  <div id="e3"></div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col m6 s12">
+                  <button onclick="SubmitForm()" type="submit" class="waves-effect waves-light btn-large"><i class="material-icons right">backup</i>Submit</button>
+                </div>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.0/additional-methods.min.js"></script>
+
+  </body>
+
+  </html>
